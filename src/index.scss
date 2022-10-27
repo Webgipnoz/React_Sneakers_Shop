@@ -1,8 +1,10 @@
 body{
   margin: 0;
   font-family: system-ui;
-  background-color: #e7e7e7;
+  background-color: lightskyblue;
 }
+
+
 
 .App{
   background: #ffffff;
@@ -10,4 +12,93 @@ body{
   border-radius: 20px;
   max-width: 1080px;
   margin: 50px auto;
+  
+  header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    border-bottom: 1px solid #eaeaea;
+    
+    .headerLeft{
+      display: flex;
+      align-items: center;
+    }
+  
+    .headerRight{
+      margin: 0;
+      padding: 0;
+      display: flex;
+  
+      li{
+        list-style-type: none;
+        margin: 30px;
+      }
+    }
+    
+    img{
+      margin-right: 5px;
+      margin-left: 5px;
+    }
+  
+    h3, p {
+      margin: 0;
+    }
+  }  
+
+  .headerLogo{
+    width: 40px;
+    height: 40px;
+    background-color: lightgreen;
+    border-radius: 60%
+  }
+  
+  .headerCart{
+    width: 18px;
+    height: 18px;
+  }
+  
+  .headerUser{
+    width: 18px;
+    height: 18px;
+  }
+
+  .content{
+    padding: 40px;
+    
+    h1{
+      margin: 0 0 40px 0;
+    }
+    
+    .catalog{
+
+      display: flex;
+
+      .card{
+
+        border: 1px solid #eaeaea;
+        padding: 20px;
+        margin: 20px;
+        width: 210px;
+        border-radius: 40px;
+  
+        .imgSneakers{
+          width: 130px;
+          height: 70px;
+        }
+  
+        .cardButton{
+          display: flex;
+          justify-content: space-between;
+        }
+  
+        .cardPrice{
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    
+    }
+  
+  }
 }
