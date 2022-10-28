@@ -1,12 +1,47 @@
+import React from 'react';
 import './index.scss'
+import Card from './components/Card/Card';
 import { Button, TextField } from '@mui/material'
 
 function App() {
   return (
     <div className="App">
       <div className='overlay'>
-        <div className='rightSite'>
-
+        <div className='drawer'>
+          <div className="cartHeader">
+            <h2>Cart</h2>
+            <Button 
+              size="small" 
+              variant="contained"
+              >X
+            </Button>
+          </div>
+          <div className='cart'>
+            <div className='cartItem'>
+              <img src="/img/sneakers/01.jpg" alt="sneakersImg"/>
+              <div>
+                <p>WMNS DUNK LOW 'GREEN PAISLEY'</p>
+                <b>Price: 175 Euro</b>
+                <Button 
+                  size="small" 
+                  variant="contained"
+                 >X
+                </Button>
+              </div>
+            </div>
+          </div>
+          <div className="priceCart">
+            <div className="price">
+              <h2>Price</h2>
+              <p>145 Euro</p>
+            </div>
+            <Button 
+              variant="contained" 
+              color="success"
+              size="large">
+                Place your order
+            </Button>
+          </div>
         </div>
       </div>
 
@@ -34,110 +69,17 @@ function App() {
           <h1>All Sneakers</h1>
           <div className='search'>
           <TextField 
-            id="outlined-basic" 
-            label="Search" 
+            id="outlined-basic"  
             variant="outlined" 
           />
           </div>
         </div>
         
         <div className='catalog'>
-          <div className='card'>
-            <img className='imgSneakers' src="/img/sneakers/01.jpg" alt="sneakers"/>
-            <img className='unliked' src="/img/unliked.svg" alt="unliked"/>
-
-            <h5>WMNS DUNK LOW 'GREEN PAISLEY'</h5>
-            
-            <div className='cardButton'>
-              <div className='cardPrice'>
-                
-                <span>Price: </span>
-                
-                <b>175 Euro</b>
-              
-              </div>
-              
-              <Button 
-                size="small" 
-                variant="contained"
-                >+
-              </Button>
-            
-            </div>
-          </div>
-      
-          <div className='card'>
-            <img className='imgSneakers' src="/img/sneakers/02.jpg" alt="sneakers"/>
-            <img className='unliked' src="/img/unliked.svg" alt="unliked"/>
-            
-            <h5>AIR JORDAN 'BROTHERHOOD'</h5>
-            
-            <div className='cardButton'>
-              <div className='cardPrice'>
-                
-                <span>Price: </span>
-                
-                <b>175 Euro</b>
-              
-              </div>
-              
-              <Button 
-                size="small" 
-                variant="contained"
-                >+
-              </Button>
-            
-            </div>
-          </div>
-
-          <div className='card'>
-            <img className='imgSneakers' src="/img/sneakers/03.jpg" alt="sneakers"/>
-            <img className='unliked' src="/img/liked.svg" alt="unliked"/>
-
-            <h5>YEEZY BOOST 700 'BRIGHT BLUE'</h5>
-            
-            <div className='cardButton'>
-              <div className='cardPrice'>
-                
-                <span>Price: </span>
-                
-                <b>175 Euro</b>
-              
-              </div>
-              
-              <Button 
-                size="small" 
-                variant="contained"
-                color="success"
-                >✓
-              </Button>
-            
-            </div>
-          </div>
-
-          <div className='card'>
-            <img className='imgSneakers' src="/img/sneakers/04.jpg" alt="sneakers"/>
-            <img className='unliked' src="/img/unliked.svg" alt="unliked"/>
-            
-            <h5>DUNK LOW 'COMMUNITY GARDEN'</h5>
-            
-            <div className='cardButton'>
-              <div className='cardPrice'>
-                
-                <span>Price: </span>
-                
-                <b>175 Euro</b>
-              
-              </div>
-              
-              <Button 
-                size="small" 
-                variant="contained"
-                >+
-              </Button>
-            
-            </div>
-          </div>
+          <Card></Card>
+          <Card></Card>
+          <Card></Card>
+          <Card></Card>
         </div>
       </div>
     </div>
