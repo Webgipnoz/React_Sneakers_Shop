@@ -1,69 +1,41 @@
 import React from 'react';
 import './index.scss'
 import Card from './components/Card/Card';
-import { Button, TextField } from '@mui/material'
+import Header from './components/Header/Header';
+import Drawer from './components/Drawer/Drawer';
+import { TextField } from '@mui/material'
+
+const arrCard = [
+  {
+    title: "WMNS DUNK LOW 'GREEN PAISLEY'",
+    price: 175,
+    imgUrl: "./img/sneakers/01.jpg"
+  },
+  
+  {
+    title: "AIR JORDAN 'BROTHERHOOD'",
+    price: 250,
+    imgUrl: "./img/sneakers/02.jpg"
+  },
+
+  {
+    title: "AIR JORDAN 'BROTHERHOOD'",
+    price: 180,
+    imgUrl: "./img/sneakers/03.jpg"
+  },
+
+  {
+    title: "AIR JORDAN 'BROTHERHOOD'",
+    price: 275,
+    imgUrl: "./img/sneakers/04.jpg"
+  },
+]
 
 function App() {
   return (
     <div className="App">
-      <div className='overlay'>
-        <div className='drawer'>
-          <div className="cartHeader">
-            <h2>Cart</h2>
-            <Button 
-              size="small" 
-              variant="contained"
-              >X
-            </Button>
-          </div>
-          <div className='cart'>
-            <div className='cartItem'>
-              <img src="/img/sneakers/01.jpg" alt="sneakersImg"/>
-              <div>
-                <p>WMNS DUNK LOW 'GREEN PAISLEY'</p>
-                <b>Price: 175 Euro</b>
-                <Button 
-                  size="small" 
-                  variant="contained"
-                 >X
-                </Button>
-              </div>
-            </div>
-          </div>
-          <div className="priceCart">
-            <div className="price">
-              <h2>Price</h2>
-              <p>145 Euro</p>
-            </div>
-            <Button 
-              variant="contained" 
-              color="success"
-              size="large">
-                Place your order
-            </Button>
-          </div>
-        </div>
-      </div>
-
-      <header>
-        <div className='headerLeft'>
-          <img className='headerLogo' src="/img/logo.svg" alt="Logo"/>
-          <div>
-            <h3>REACT SNEAKERS</h3>
-            <p>Shop with the best sneakers!</p>
-          </div>
-        </div>
-        <ul className='headerRight'>
-          <li>
-            <img className='headerCart' src="/img/cart.svg" alt="Cart"/>
-            <span>120 Euro</span>
-          </li>
-          <li>
-            <img className='headerUser' src="/img/user.svg" alt="User"/>
-          </li>
-        </ul>
-      </header>
-      
+      <Drawer/>  
+      <Header/>
       <div className='content'>
         <div className='contentSearch'>
           <h1>All Sneakers</h1>
@@ -74,12 +46,14 @@ function App() {
           />
           </div>
         </div>
-        
-        <div className='catalog'>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
+        <div className='catalog'> 
+          {arrCard.map((obj) =>(
+            <Card
+              title={obj.title}
+              price={obj.price}
+              imgUrl={obj.imgUrl}
+            />
+          ))}
         </div>
       </div>
     </div>
