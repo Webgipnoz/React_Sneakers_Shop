@@ -1,23 +1,23 @@
 import React from 'react';
-import "./Header.scss";
+import styles from "./Header.module.scss";
 
 const Header = () => {
     return (
         <header>
-            <div className='headerLeft'>
-                <img className='headerLogo' src="/img/logo.svg" alt="Logo"/>
+            <div className={styles.headerLeft}>
+                <img className={styles.headerLogo} src="/img/logo.svg" alt="Logo"/>
                 <div>
                     <h3>REACT SNEAKERS</h3>
                     <p>Shop with the best sneakers!</p>
                 </div>
             </div>
-            <ul className='headerRight'>
+            <ul className={styles.headerRight}>
             <li>
-                <img className='headerCart' src="/img/cart.svg" alt="Cart"/>
+                <img className={styles.headerCart} src="/img/cart.svg" alt="Cart"/>
                 <span>120 Euro</span>
             </li>
             <li>
-                <img className='headerUser' src="/img/user.svg" alt="User"/>
+                <img className={styles.headerUser} src="/img/user.svg" alt="User"/>
             </li>
             </ul>
       </header>

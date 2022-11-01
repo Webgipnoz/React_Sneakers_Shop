@@ -29,6 +29,7 @@ const arrCard = [
     price: 275,
     imgUrl: "./img/sneakers/04.jpg"
   },
+
 ]
 
 function App() {

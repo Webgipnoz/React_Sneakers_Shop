@@ -1,15 +1,15 @@
 import React from 'react';
 import { Button } from '@mui/material'
-import "./Card.scss";
+import styles from "./Card.module.scss";
 
 const Card = (props) => {
     return (
-      <div className='card'>
-        <img className='imgSneakers' src={props.imgUrl} alt="sneakers"/>
-        <img className='unliked' src="/img/unliked.svg" alt="unliked"/>
+      <div className={styles.card}>
+        <img className={styles.imgSneakers} src={props.imgUrl} alt="sneakers"/>
+        <img className={styles.unliked} src="/img/unliked.svg" alt="unliked"/>
         <h5>{props.title}</h5>
-          <div className='cardButton'>
-            <div className='cardPrice'>
+          <div className={styles.cardButton}>
+            <div className={styles.cardPrice}>
               <span>Price: </span>
               <b>{props.price}</b>
             </div>
