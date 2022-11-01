@@ -53,6 +53,8 @@ function App() {
               title={obj.title}
               price={obj.price}
               imgUrl={obj.imgUrl}
+              onClickFavorite={() => console.log(obj)}
+              onClickPlus={() => console.log(obj)}
             />
           ))}
         </div>
