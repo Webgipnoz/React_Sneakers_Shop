@@ -1,40 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './index.scss'
 import Card from './components/Card/Card';
 import Header from './components/Header/Header';
 import Drawer from './components/Drawer/Drawer';
 import { TextField } from '@mui/material'
 
-const arrCard = [
-  {
-    title: "WMNS DUNK LOW 'GREEN PAISLEY'",
-    price: 175,
-    imgUrl: "./img/sneakers/01.jpg"
-  },
-  
-  {
-    title: "AIR JORDAN 'BROTHERHOOD'",
-    price: 250,
-    imgUrl: "./img/sneakers/02.jpg"
-  },
-
-  {
-    title: "AIR JORDAN 'BROTHERHOOD'",
-    price: 180,
-    imgUrl: "./img/sneakers/03.jpg"
-  },
-
-  {
-    title: "AIR JORDAN 'BROTHERHOOD'",
-    price: 275,
-    imgUrl: "./img/sneakers/04.jpg"
-  },
-
-]
-
 function App() {
+  const [items, setItems] = useState([]);
   const [cardOpened, setCartOpened] = useState(false);
-  
+
+  useEffect(() => {
+    fetch("https://63626e5437f2167d6f6422e7.mockapi.io/items")
+    .then((res) => {
+      return res.json();
+    })
+    .then((json) => {
+      setItems(json);
+    });
+  });
+
   return (
     <div className="App">
       {cardOpened && 
@@ -55,7 +39,7 @@ function App() {
           </div>
         </div>
         <div className='catalog'> 
-          {arrCard.map((obj) =>(
+          {items.map((obj) =>(
             <Card
               title={obj.title}
               price={obj.price}
