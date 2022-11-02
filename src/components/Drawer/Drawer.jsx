@@ -2,13 +2,14 @@ import React from 'react';
 import styles from "./Drawer.module.scss";
 import { Button } from '@mui/material';
 
-const Drawer = () => {
+const Drawer = (props) => {
     return (
         <div className={styles.overlay}>
             <div className={styles.drawer}>
                 <div className={styles.cartHeader}>
                     <h2>Cart</h2>
-                    <Button 
+                    <Button
+                        onClick={props.onClose}
                         size="small" 
                         variant="contained"
                         >X

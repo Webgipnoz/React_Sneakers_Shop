@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "./Header.module.scss";
 
-const Header = () => {
+const Header = (props) => {
     return (
         <header>
             <div className={styles.headerLeft}>
@@ -13,11 +13,20 @@ const Header = () => {
             </div>
             <ul className={styles.headerRight}>
             <li>
-                <img className={styles.headerCart} src="/img/cart.svg" alt="Cart"/>
+                <img 
+                    onClick={props.onClickCart}
+                    className={styles.headerCart} 
+                    src="/img/cart.svg" 
+                    alt="Cart"
+                />
                 <span>120 Euro</span>
             </li>
             <li>
-                <img className={styles.headerUser} src="/img/user.svg" alt="User"/>
+                <img 
+                    className={styles.headerUser} 
+                    src="/img/user.svg" 
+                    alt="User"
+                />
             </li>
             </ul>
       </header>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './index.scss'
 import Card from './components/Card/Card';
 import Header from './components/Header/Header';
@@ -33,10 +33,17 @@ const arrCard = [
 ]
 
 function App() {
+  const [cardOpened, setCartOpened] = useState(false);
+  
   return (
     <div className="App">
-      <Drawer/>  
-      <Header/>
+      {cardOpened && 
+        <Drawer
+          onClose= { () => setCartOpened(false)}
+        />}  
+      <Header
+        onClickCart= { () => setCartOpened(true)}
+      />
       <div className='content'>
         <div className='contentSearch'>
           <h1>All Sneakers</h1>
@@ -53,8 +60,8 @@ function App() {
               title={obj.title}
               price={obj.price}
               imgUrl={obj.imgUrl}
-              onClickFavorite={() => console.log(obj)}
-              onClickPlus={() => console.log(obj)}
+              onClickFavorite={() => console.log("Clicked on Favorite")}
+              onClickPlus={() => console.log("Clicked on Plus")}
             />
           ))}
         </div>
