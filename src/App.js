@@ -8,6 +8,7 @@ import { TextField } from '@mui/material'
 function App() {
   const [items, setItems] = useState([]);
   const [cartItems, setCartItems] = useState([]);
+  const [searchValue, setSearchValue] = useState('');
   const [cardOpened, setCartOpened] = useState(false);
 
   useEffect(() => {
@@ -24,6 +25,10 @@ function App() {
     setCartItems([...cartItems, obj])
   }
 
+  const onChangeSearchInput = (e) => {
+    setSearchValue(e.target.value);
+  }
+
   return (
     <div className="App">
       {cardOpened && 
@@ -36,17 +41,21 @@ function App() {
       />
       <div className='content'>
         <div className='contentSearch'>
-          <h1>All Sneakers</h1>
+          <h1>{searchValue ? `Search by request "${searchValue}"` : "All Sneakers"}</h1>
           <div className='search'>
-          <TextField 
+          <TextField
+            onChange={onChangeSearchInput} 
             id="outlined-basic"  
             variant="outlined" 
           />
           </div>
         </div>
         <div className='catalog'> 
-          {items.map((item) =>(
+          {items
+            .filter(item => item.title.toLowerCase().includes(searchValue.toLowerCase()))
+            .map((item, index) =>(
             <Card
+              key={index}
               title={item.title}
               price={item.price}
               imgUrl={item.imgUrl}
