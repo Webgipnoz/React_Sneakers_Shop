@@ -2,32 +2,36 @@ import React from 'react';
 import styles from "./Drawer.module.scss";
 import { Button } from '@mui/material';
 
-const Drawer = (props) => {
+const Drawer = ({ onClose, items = []}) => {
     return (
         <div className={styles.overlay}>
             <div className={styles.drawer}>
                 <div className={styles.cartHeader}>
                     <h2>Cart</h2>
                     <Button
-                        onClick={props.onClose}
+                        onClick={onClose}
                         size="small" 
                         variant="contained"
                         >X
                     </Button>
                 </div>
                 <div className={styles.cart}>
-                    <div className={styles.cartItem}>
-                    <img src="/img/sneakers/01.jpg" alt="sneakersImg"/>
-                    <div>
-                        <p>WMNS DUNK LOW 'GREEN PAISLEY'</p>
-                        <b>Price: 175 Euro</b>
-                        <Button 
-                            size="small" 
-                            variant="contained"
-                            >X
-                        </Button>
-                    </div>
-                    </div>
+                    {
+                        items.map((obj) => (
+                            <div className={styles.cartItem}>
+                                <img src={obj.imgUrl} alt="sneakersImg"/>
+                                <div>
+                                <p>{obj.title}</p>
+                                <b>Price: {obj.price} Euro</b>
+                                <Button 
+                                    size="small" 
+                                    variant="contained"
+                                    >X
+                                </Button>
+                                </div>
+                            </div>
+                        ))
+                    }
                 </div>
                 <div className={styles.priceCart}>
                     <div className={styles.price}>

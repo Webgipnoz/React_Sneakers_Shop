@@ -7,6 +7,7 @@ import { TextField } from '@mui/material'
 
 function App() {
   const [items, setItems] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
   const [cardOpened, setCartOpened] = useState(false);
 
   useEffect(() => {
@@ -17,12 +18,17 @@ function App() {
     .then((json) => {
       setItems(json);
     });
-  });
+  }, []);
+
+  const addToCart = (obj) => {
+    setCartItems([...cartItems, obj])
+  }
 
   return (
     <div className="App">
       {cardOpened && 
         <Drawer
+          items= {cartItems}
           onClose= { () => setCartOpened(false)}
         />}  
       <Header
@@ -39,13 +45,13 @@ function App() {
           </div>
         </div>
         <div className='catalog'> 
-          {items.map((obj) =>(
+          {items.map((item) =>(
             <Card
-              title={obj.title}
-              price={obj.price}
-              imgUrl={obj.imgUrl}
-              onClickFavorite={() => console.log("Clicked on Favorite")}
-              onClickPlus={() => console.log("Clicked on Plus")}
+              title={item.title}
+              price={item.price}
+              imgUrl={item.imgUrl}
+              onFavorite={() => console.log("Clicked on Favorite")}
+              onPlus={(obj) => addToCart(obj)}
             />
           ))}
         </div>
